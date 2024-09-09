@@ -11,7 +11,7 @@ validateEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 app.get("/firstName", (req, res) => {
   res.send(firstName.toUpperCase());
-});
+});           
 app.get("/lastName", (req, res) => {
   res.send(lastName.toUpperCase());
 });
