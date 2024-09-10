@@ -1,42 +1,31 @@
-const express = require("express");
+const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
 
-const firstName = " Gian Mathew";
-const lastName = "Gutang";
-const age = 22;
-const schoolEmail = "giso.gutang.swu@phinmaed.com";
-
-validateEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-app.get("/firstName", (req, res) => {
-  res.send(firstName.toUpperCase());
-});           
-app.get("/lastName", (req, res) => {
-  res.send(lastName.toUpperCase());
-});
-app.get("/age", (req, res) => {
-  res.send(age.toString());
-});
-app.get("/schoolEmail", (req, res) => {
-  if (validateEmail.test(schoolEmail)) {
-    res.send(schoolEmail);
-  } else {
-    res.status(400).send("Invalid email");
-  }
+// Route for /subject
+app.get('/subject', (req, res) => {
+    res.send('ITE314');
 });
 
-app.get("/mydata", (req, res) => {
-  res.json({
-    first_name: firstName.toUpperCase(),
-    last_name: lastName.toUpperCase(),
-    age: age,
-    school_email: validateEmail.test(schoolEmail)
-      ? schoolEmail
-      : "Invalid email",
-  });
+// Route for /exam
+app.get('/exam', (req, res) => {
+    res.send('P2');
+});
+
+// Route for /node
+app.get('/node', (req, res) => {
+    res.send('NODEJS');
+});
+
+// Route for /mydata
+app.get('/mydata', (req, res) => {
+    res.json({
+        subject: 'ITE314',
+        exam: 'P2',
+        node: 'NODEJS'
+    });
 });
 
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+    console.log(`Server running on http://localhost:${port}`);
 });
